@@ -9,9 +9,22 @@ import SwiftUI
 
 @main
 struct MB_ControlApp: App {
+    
+    @StateObject var authentication = Authentication()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            if authentication.isValidated {
+                WrapperView()
+                    .preferredColorScheme(.dark)
+                    .environmentObject(authentication)
+                    .environmentObject(Model())
+            }else {
+                OnboardingView(show: .constant(true))
+                    .environmentObject(authentication)
+            }
+         
+
         }
     }
 }
