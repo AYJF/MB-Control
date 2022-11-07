@@ -26,9 +26,11 @@ class Authentication: ObservableObject {
 //        }
 //    }
     
+
+    
     func updateValidation(success: Bool) {
         withAnimation {
-            isValidated = success
+            self.isValidated = success
         }
     }
 }

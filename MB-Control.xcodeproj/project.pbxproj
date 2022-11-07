@@ -51,6 +51,9 @@
 		A57F75D62911FD8C00E1B96E /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F75D52911FD8C00E1B96E /* AddView.swift */; };
 		A599E2F52912B60B00FC09B4 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599E2F42912B60B00FC09B4 /* PasswordField.swift */; };
 		A599E2F72912CE9700FC09B4 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599E2F62912CE9700FC09B4 /* ForgotPassword.swift */; };
+		A5A74C1E29197D5D00952B80 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A74C1D29197D5D00952B80 /* OperationView.swift */; };
+		A5A74C2029198E1300952B80 /* NewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A74C1F29198E1300952B80 /* NewClient.swift */; };
+		A5A74C2229198E4500952B80 /* NewPromoter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A74C2129198E4500952B80 /* NewPromoter.swift */; };
 		A5D6D49E2916B8D6001EF0EE /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6D49C2916B8D5001EF0EE /* Tab.swift */; };
 		A5D6D49F2916B8D6001EF0EE /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6D49D2916B8D6001EF0EE /* TabBar.swift */; };
 		A5D6D4A12916B95D001EF0EE /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6D4A02916B95D001EF0EE /* Styles.swift */; };
@@ -59,6 +62,8 @@
 		A5D6D4AB2916CA18001EF0EE /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6D4AA2916CA18001EF0EE /* NavigationBar.swift */; };
 		A5D6D4AD2916CD28001EF0EE /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6D4AC2916CD28001EF0EE /* AnimatableFontModifier.swift */; };
 		A5D6D4AF2916CE36001EF0EE /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6D4AE2916CE36001EF0EE /* WrapperView.swift */; };
+		A5F58B1F291960C400B24C97 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F58B1E291960C400B24C97 /* Auth.swift */; };
+		A5F58B21291963B500B24C97 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F58B20291963B500B24C97 /* SignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +112,9 @@
 		A57F75D52911FD8C00E1B96E /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		A599E2F42912B60B00FC09B4 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		A599E2F62912CE9700FC09B4 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		A5A74C1D29197D5D00952B80 /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
+		A5A74C1F29198E1300952B80 /* NewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClient.swift; sourceTree = "<group>"; };
+		A5A74C2129198E4500952B80 /* NewPromoter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPromoter.swift; sourceTree = "<group>"; };
 		A5D6D49C2916B8D5001EF0EE /* Tab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		A5D6D49D2916B8D6001EF0EE /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A5D6D4A02916B95D001EF0EE /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
@@ -115,6 +123,8 @@
 		A5D6D4AA2916CA18001EF0EE /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		A5D6D4AC2916CD28001EF0EE /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		A5D6D4AE2916CE36001EF0EE /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
+		A5F58B1E291960C400B24C97 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		A5F58B20291963B500B24C97 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +143,15 @@
 			isa = PBXGroup;
 			children = (
 				A599E2F62912CE9700FC09B4 /* ForgotPassword.swift */,
+				A5A74C1F29198E1300952B80 /* NewClient.swift */,
+				A5A74C2129198E4500952B80 /* NewPromoter.swift */,
+				A5F58B20291963B500B24C97 /* SignUp.swift */,
 				A510C42929160F5C001EFBDF /* ProfileView.swift */,
 				A545777E29174B4A003D5575 /* HomeView.swift */,
 				A545778229174B60003D5575 /* MatchedView.swift */,
 				A510C4232915EEC4001EFBDF /* GradientButton.swift */,
 				A545778029174B54003D5575 /* CourseView.swift */,
+				A5A74C1D29197D5D00952B80 /* OperationView.swift */,
 				A510C4252915EEF9001EFBDF /* TextFieldIcon.swift */,
 				A510C3F12915B972001EFBDF /* SignInView.swift */,
 				A510C3F22915B972001EFBDF /* OnboardingView.swift */,
@@ -159,6 +173,7 @@
 				A5D6D4A02916B95D001EF0EE /* Styles.swift */,
 				A510C3FB2915BA2E001EFBDF /* CustomTextField.swift */,
 				A510C3F92915BA2E001EFBDF /* Extensions.swift */,
+				A5F58B1E291960C400B24C97 /* Auth.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -388,6 +403,7 @@
 				A510C4002915BA2E001EFBDF /* CustomFont.swift in Sources */,
 				A510C3F42915B972001EFBDF /* OnboardingView.swift in Sources */,
 				A5D6D4AB2916CA18001EF0EE /* NavigationBar.swift in Sources */,
+				A5A74C2029198E1300952B80 /* NewClient.swift in Sources */,
 				A546DEE12912E911000001A5 /* ServiceApi.swift in Sources */,
 				A510C3FD2915BA2E001EFBDF /* Extensions.swift in Sources */,
 				A510C41E2915C2F4001EFBDF /* VisualEffectBlur.swift in Sources */,
@@ -399,12 +415,16 @@
 				A57F75D62911FD8C00E1B96E /* AddView.swift in Sources */,
 				A545778729174B76003D5575 /* Course.swift in Sources */,
 				A545778329174B60003D5575 /* MatchedView.swift in Sources */,
+				A5F58B1F291960C400B24C97 /* Auth.swift in Sources */,
 				A510C4222915EE69001EFBDF /* GradiantText.swift in Sources */,
 				A510C41F2915C2F4001EFBDF /* ImagePicker.swift in Sources */,
+				A5F58B21291963B500B24C97 /* SignUp.swift in Sources */,
 				A5D6D4A62916C640001EF0EE /* FeaturedItem.swift in Sources */,
 				A510C4262915EEF9001EFBDF /* TextFieldIcon.swift in Sources */,
 				A5397E01291822EF0011F860 /* LoginViewModel.swift in Sources */,
 				A510C3F32915B972001EFBDF /* SignInView.swift in Sources */,
+				A5A74C1E29197D5D00952B80 /* OperationView.swift in Sources */,
+				A5A74C2229198E4500952B80 /* NewPromoter.swift in Sources */,
 				A5397DFF2918221E0011F860 /* Credentials.swift in Sources */,
 				A510C4242915EEC4001EFBDF /* GradientButton.swift in Sources */,
 				A545778929174D20003D5575 /* CourseItem.swift in Sources */,

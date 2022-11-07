@@ -141,10 +141,10 @@ class LoginModel: ObservableObject{
     @Published var user:User?
     
     
-   @ObservedObject var  serviceApi = ServiceApi()
+//   @ObservedObject var  serviceApi = ServiceApi()
     func login()  async throws {
-       try await  serviceApi.login(username: email, password: password)
-        self.user = serviceApi.user
+//       try await  serviceApi.login(username: email, password: password)
+//        self.user = serviceApi.user
     }
     
 }

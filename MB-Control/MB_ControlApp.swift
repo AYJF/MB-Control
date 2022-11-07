@@ -11,6 +11,7 @@ import SwiftUI
 struct MB_ControlApp: App {
     
     @StateObject var authentication = Authentication()
+    @AppStorage("selectedAuth") var selectedAuth: Auth = .signIn
     var body: some Scene {
         WindowGroup {
             
@@ -20,8 +21,18 @@ struct MB_ControlApp: App {
                     .environmentObject(authentication)
                     .environmentObject(Model())
             }else {
-                OnboardingView(show: .constant(true))
-                    .environmentObject(authentication)
+                
+                
+                switch selectedAuth {
+                case .signIn:
+                     OnboardingView(show: .constant(true))
+                         .environmentObject(authentication)
+                case .signUp:
+                    SignUp()
+                case .forgot:
+                    ForgotPassword()
+                }
+              
             }
          
 

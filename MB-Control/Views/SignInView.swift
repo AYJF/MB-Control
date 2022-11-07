@@ -17,62 +17,41 @@ struct SignInView: View {
     
     @StateObject private var loginVM = LoginViewModel()
     @EnvironmentObject var authentication: Authentication
+    @AppStorage("selectedAuth") var selectedAuth: Auth = .signIn
     @State private var showHomeScreen = false
     
     func logIn() async  {
         isLoading = true
 
-//        if loginVM.credentials.token != "" {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                 check.triggerInput("Check")
-//            }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                confetti.triggerInput("Trigger explosion")
-//                withAnimation {
-//                    isLoading = false
-//                }
-//
-//
-//            }
-////            DispatchQueue.main.asyncAfter(deadline: .now() + 3)  {
-////                withAnimation {
-////                    show.toggle()
-////                }
-//
-//
-//                 await   loginVM.login { success in
-//                    authentication.updateValidation(success: success)
-//                }
-//
-//
-//
-////            }
-//
-//
-//        } else {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                check.triggerInput("Error")
-//            }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                isLoading = false
-//            }
-//        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
              check.triggerInput("Check")
         }
          await   loginVM.login { success in
              
-                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                         confetti.triggerInput("Trigger explosion")
-                         withAnimation {
-                             isLoading = false
-                         }
-         
-         
+             if success {
+                 DispatchQueue.main.asyncAfter(deadline: .now() ) {
+                     confetti.triggerInput("Trigger explosion")
+                     withAnimation {
+                         isLoading = false
                      }
+     
+     
+                 }
+             }else {
+                 DispatchQueue.main.asyncAfter(deadline: .now() ) {
+                    check.triggerInput("Error")
+                }
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                   isLoading = false
+               }
+             }
+                     
              
-            authentication.updateValidation(success: success)
+             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                 authentication.updateValidation(success: success)
+             }
+             
+            
         }
     }
     
@@ -112,6 +91,7 @@ struct SignInView: View {
                     .largeButton()
                 }
                 
+                
                 HStack {
                     Rectangle().frame(height: 1).opacity(0.1)
                     Text("OR").customFont(.subheadline2).foregroundColor(.black.opacity(0.3))
@@ -124,6 +104,14 @@ struct SignInView: View {
                 
                 HStack {
                     Image("Logo Email")
+                        .onTapGesture {
+                            
+                            print("Aqui")
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                selectedAuth = .signUp
+                                
+                            }
+                        }
                     Spacer()
                     Image("Logo Apple")
                     Spacer()

@@ -23,8 +23,6 @@ class APIService {
         //declare parameter as a dictionary which contains string as key and value combination.
         let parameters = ["email": credentials.email, "password": credentials.password]
 
-        
-        print("essd sdsd")
         //create the url with NSURL
         guard  let url = URL(string: "https://mb-control.azurewebsites.net/users/login") else {
             print("Invalid URL")
@@ -44,7 +42,7 @@ class APIService {
         }
 
         
-        print("essd sdsd")
+
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -56,10 +54,13 @@ class APIService {
         }
         else {
             print("Error while fetching data")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.failure(APIError.error))
+            }
         }
 
 
-        print(data)
+
 
         let user:User = try JSONDecoder().decode(User.self, from: data)
         
@@ -76,50 +77,3 @@ class APIService {
 }
 
 
-
-class ServiceApi : ObservableObject{
-    
-    @Published var user: User?
-
-    
-
-    func login(username: String, password: String) async  throws{
-
-        //declare parameter as a dictionary which contains string as key and value combination.
-        let parameters = ["email": username, "password": password]
-
-        //create the url with NSURL
-        guard  let url = URL(string: "https://mb-control.azurewebsites.net/users/login") else {
-            print("Invalid URL")
-            return
-        }
-
-        //now create the Request object using the url object
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST" //set http method as POST
-
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
-        } catch let error {
-            print(error.localizedDescription)
-           
-        }
-
-        //HTTP Headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-      
-
-        let (data, response) = try await URLSession.shared.data(for: request)
-        
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Error while fetching data") }
-        
-        self.user = try JSONDecoder().decode(User.self, from: data)
-          
-       
-
-    }
-
-    
-}
