@@ -9,7 +9,7 @@ import Foundation
 
 
 struct User:Decodable {
-    let email:String
-    let token: String
-    let roles:Array<String>
+    var email:String = ""
+    var token: String = ""
+    var roles:Array<String> = []
 }

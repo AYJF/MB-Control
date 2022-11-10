@@ -10,6 +10,7 @@ import SwiftUI
 struct WrapperView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     @EnvironmentObject var model: Model
+
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -27,6 +28,7 @@ struct WrapperView: View {
             
             TabBar()
                 .offset(y: model.showDetail ? 200 : 0)
+        
         }
         .safeAreaInset(edge: .bottom) {
             Color.clear.frame(height: 44)

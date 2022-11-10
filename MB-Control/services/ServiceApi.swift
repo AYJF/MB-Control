@@ -9,7 +9,9 @@ import Foundation
 
 
 class APIService {
-    static let shared = APIService()
+    
+  var user = User()
+
   
     enum APIError: Error {
         case error
@@ -59,15 +61,10 @@ class APIService {
             }
         }
 
-
-
-
-        let user:User = try JSONDecoder().decode(User.self, from: data)
-        
-        
-        
+        self.user = try JSONDecoder().decode(User.self, from: data)
+      
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if user.token != "" {
+            if self.user.token != "" {
                 completion(.success(true))
             } else {
                 completion(.failure(APIError.error))

@@ -32,10 +32,36 @@ struct NewClient: View {
     
     @State private var selectedIva: Iva = .conIva
     @State private var selectedADR: Adr = .CUCA
+    @State private var username: String = ""
+    
+    @State private var selection = "1 1"
+    
+    
+    let pickerValues = ["1 1", "8 2%", "99"]
+    
     var body: some View {
 
-        VStack(alignment: .leading) {
+        VStack {
             
+            VStack(alignment: .leading) {
+                Text("Name")
+                    .customFont(.subheadline)
+                    .foregroundColor(.secondary)
+                TextField("", text: $username )
+                    .customTextField(image: Image("Topic 1"))
+            }.padding(.bottom, 16)
+            
+            VStack(alignment: .leading) {
+                Text("RFC")
+                    .customFont(.subheadline)
+                    .foregroundColor(.secondary)
+                TextField("", text: $username )
+                    .customTextField(image: Image("Topic 1"))
+            }
+     
+             
+
+             
             HStack {
                 Picker("ADR", selection: $selectedADR) {
                         ForEach(Adr.allCases) { adr in
@@ -50,21 +76,12 @@ struct NewClient: View {
                         }
                     }
                     .pickerStyle(.wheel)
-    
-                Picker("ADR", selection: $selectedADR) {
-                        ForEach(Adr.allCases) { adr in
 
-                        HStack {
-                               Text(adr.rawValue)
-                                   .font(.footnote)
-                                   .padding()
-                               Spacer()
-                        }
+                Picker("Menu Picker", selection: $selection) {
+                    pickerContent()
+                }
+                .pickerStyle(.wheel)
 
-                        }
-                    }
-                    .pickerStyle(.wheel)
-    
             }
 
             
@@ -77,9 +94,34 @@ struct NewClient: View {
 
             }
             .pickerStyle(.segmented)
+            .padding(.bottom, 16)
    
             
+            
+            VStack(alignment: .leading) {
+                Text("Promotor")
+                    .customFont(.subheadline)
+                    .foregroundColor(.secondary)
+                TextField("", text: $username )
+                    .customTextField(image: Image("Topic 1"))
+            }
+            .padding(.bottom, 16)
+     
+            
+            Button("Guardar") {
+                        print("Button pressed!")
+                    }
+            .buttonStyle(GrowingButton())
 
+        }
+    }
+    
+    
+    @ViewBuilder
+    func pickerContent() -> some View {
+        ForEach(pickerValues, id: \.self) {
+            Text($0).font(.footnote)
+               
         }
     }
 }

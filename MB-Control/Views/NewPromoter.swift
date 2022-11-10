@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct NewPromoter: View {
+    
+    @State private var username: String = ""
     var body: some View {
-        Text("Hello, Promoter")
+        VStack {
+            VStack(alignment: .leading) {
+                Text("Name")
+                    .customFont(.subheadline)
+                    .foregroundColor(.secondary)
+                TextField("", text: $username )
+                    .customTextField(image: Image("Topic 1"))
+            }
+            
+        }
     }
 }
 

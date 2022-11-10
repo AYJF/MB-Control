@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import RiveRuntime
+
+
 
 struct ProfileView: View {
     @State private var showSettingsView = false
@@ -14,11 +17,18 @@ struct ProfileView: View {
     @State private var alertTitle = "Purchase Successful!"
     @State private var alertMessage = "You are now a Pro member and can access all courses"
     @State var updater: Bool = false
+    
+    let ratingAnimation = RiveViewModel(fileName: "rating_animation", stateMachineName: "State Machine 1")
 
 //    @EnvironmentObject var authentication: Authentication
 
+    @EnvironmentObject  var loginVM: LoginViewModel
     @State private var showLoader = false
+    
+    @State var rating: Double = 5
+
     var body: some View {
+   
         ZStack {
 //            Image("background-1")
 //                .resizable()
@@ -39,9 +49,9 @@ struct ProfileView: View {
                             .frame(width: 66, height: 66, alignment: .center)
                       
                         VStack(alignment: .leading) {
-                            Text("Nombre Cliente")
+                            Text(loginVM.credentials.email.split(separator: "@")[0] )
                                 .foregroundColor(.white)
-                                .font(.title2)
+                                .font(.title3)
                                 .bold()
                             Text("Nombre Promotor")
                                 .foregroundColor(.white).opacity(0.7)
@@ -50,10 +60,19 @@ struct ProfileView: View {
                         Spacer()
                         Button {
                             showSettingsView.toggle()
+                            print("Token :",loginVM.credentials.token)
+        
                         } label: {
                             TextFieldIcon(iconName: "gearshape.fill", currentlyEditing: .constant(true))
                         }
                     }
+                    
+     
+                    ratingAnimation.view()
+                        .frame(height: 50)
+                        .onAppear {
+                            ratingAnimation.setInput("rating", value: rating)
+                        }
                     Rectangle()
                         .frame(height: 1)
                         .foregroundColor(Color.white.opacity(0.1))

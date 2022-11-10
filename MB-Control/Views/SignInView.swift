@@ -15,7 +15,7 @@ struct SignInView: View {
     let check = RiveViewModel(fileName: "check", stateMachineName: "State Machine 1")
     
     
-    @StateObject private var loginVM = LoginViewModel()
+    @EnvironmentObject  var loginVM: LoginViewModel
     @EnvironmentObject var authentication: Authentication
     @AppStorage("selectedAuth") var selectedAuth: Auth = .signIn
     @State private var showHomeScreen = false
@@ -23,31 +23,34 @@ struct SignInView: View {
     func logIn() async  {
         isLoading = true
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-             check.triggerInput("Check")
-        }
+
          await   loginVM.login { success in
+      
              
+         
              if success {
-                 DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                     confetti.triggerInput("Trigger explosion")
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                     try? check.triggerInput("Check")
+                 }
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                     try? confetti.triggerInput("Trigger explosion")
                      withAnimation {
                          isLoading = false
                      }
-     
-     
                  }
+
              }else {
-                 DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                    check.triggerInput("Error")
-                }
-                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                   isLoading = false
-               }
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                     try? check.triggerInput("Error")
+                 }
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                     isLoading = false
+                 }
              }
-                     
              
-             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+
+             
+             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                  authentication.updateValidation(success: success)
              }
              

@@ -12,7 +12,7 @@ struct OperationView: View {
     var namespace: Namespace.ID
     var course: Course = featuredCourses[0]
     @Binding var show: Bool
-    @State private var username: String = ""
+  
     @State var appear = [false, false, false]
     @EnvironmentObject var model: Model
     @State var viewState: CGSize = .zero
@@ -89,13 +89,6 @@ struct OperationView: View {
     var content: some View {
         VStack(alignment: .leading, spacing: 4) {
             
-            VStack(alignment: .leading) {
-                Text("Name")
-                    .customFont(.subheadline)
-                    .foregroundColor(.secondary)
-                TextField("", text: $username )
-                    .customTextField(image: Image("Topic 1"))
-            }
             
           
             switch course.title {
@@ -103,6 +96,8 @@ struct OperationView: View {
                NewClient()
             case "Promotor":
                 NewPromoter()
+            case "Reporte":
+                ReportView()
             default:
                 Text("")
             }
