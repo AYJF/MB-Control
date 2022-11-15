@@ -11,23 +11,23 @@ struct TabItem: Identifiable {
     var id = UUID()
     var text: String
     var icon: String
-    var tab: Tab
+    var tab: AppRoute
     var color: Color
 }
 
 var tabItems = [
-    TabItem(text: "Learn Now", icon: "house", tab: .home, color: .teal),
-    TabItem(text: "Explore", icon: "magnifyingglass", tab: .explore, color: .blue),
-    TabItem(text: "Notifications", icon: "bell", tab: .notifications, color: .red),
-    TabItem(text: "Profile", icon: "gear", tab: .profile, color: .pink)
+    TabItem(text: "Home", icon: "house", tab: .Home, color: .teal),
+    TabItem(text: "Explore", icon: "magnifyingglass", tab: .Explore, color: .blue),
+    TabItem(text: "Notifications", icon: "bell", tab: .Notifications, color: .red),
+    TabItem(text: "Profile", icon: "gear", tab: .Profile, color: .pink)
 ]
 
-enum Tab: String {
-    case home
-    case explore
-    case notifications
-    case profile
-}
+//enum Tab: String {
+//    case home
+//    case explore
+//    case notifications
+//    case profile
+//}
 
 struct TabPreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0

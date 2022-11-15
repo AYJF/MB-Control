@@ -17,6 +17,15 @@
         "branch" : "main",
         "revision" : "ffedc47d7d83b31c5ad53dca95b9ffc4eca9bc50"
       }
+    },
+    {
+      "identity" : "uipilot",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/canopas/UIPilot.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bd3c0fcc56f063a699ddb4eb46856963406cfa73"
+      }
     }
   ],
   "version" : 2

@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
-
+import UIPilot
 
 struct TabBar: View {
-    @AppStorage("selectedTab") var selectedTab: Tab = .home
+  
     @State var color: Color = .teal
     @State var tabItemWidth: CGFloat = 0
+    
+    @EnvironmentObject var pilot: UIPilot<AppRoute>
+    @AppStorage("selectedTab") var selectedTab: AppRoute = .Home
     
     var body: some View {
         HStack {
@@ -38,6 +41,7 @@ struct TabBar: View {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                     selectedTab = item.tab
                     color = item.color
+                    pilot.push(selectedTab)
                 }
             } label: {
                 VStack(spacing: 0) {
@@ -67,28 +71,28 @@ struct TabBar: View {
     
     var background: some View {
         HStack {
-            if selectedTab == .profile { Spacer() }
-            if selectedTab == .explore { Spacer() }
-            if selectedTab == .notifications {
+            if selectedTab == .Profile { Spacer() }
+            if selectedTab == .Explore { Spacer() }
+            if selectedTab == .Notifications {
                 Spacer()
                 Spacer()
             }
             Circle().fill(color).frame(width: tabItemWidth)
-            if selectedTab == .home { Spacer() }
-            if selectedTab == .explore {
+            if selectedTab == .Home { Spacer() }
+            if selectedTab == .Explore {
                 Spacer()
                 Spacer()
             }
-            if selectedTab == .notifications { Spacer() }
+            if selectedTab == .Notifications { Spacer() }
         }
         .padding(.horizontal, 8)
     }
     
     var overlay: some View {
         HStack {
-            if selectedTab == .profile { Spacer() }
-            if selectedTab == .explore { Spacer() }
-            if selectedTab == .notifications {
+            if selectedTab == .Profile { Spacer() }
+            if selectedTab == .Explore { Spacer() }
+            if selectedTab == .Notifications {
                 Spacer()
                 Spacer()
             }
@@ -98,12 +102,12 @@ struct TabBar: View {
                 .cornerRadius(3)
                 .frame(width: tabItemWidth)
                 .frame(maxHeight: .infinity, alignment: .top)
-            if selectedTab == .home { Spacer() }
-            if selectedTab == .explore {
+            if selectedTab == .Home { Spacer() }
+            if selectedTab == .Explore {
                 Spacer()
                 Spacer()
             }
-            if selectedTab == .notifications { Spacer() }
+            if selectedTab == .Notifications { Spacer() }
         }
         .padding(.horizontal, 8)
     }

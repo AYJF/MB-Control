@@ -62,27 +62,22 @@ struct NewClient: View {
              
 
              
-            HStack {
+
                 Picker("ADR", selection: $selectedADR) {
                         ForEach(Adr.allCases) { adr in
-
-                        HStack {
                                Text(adr.rawValue)
-                                   .font(.footnote)
-                                   .padding()
-                               Spacer()
-                        }
 
                         }
                     }
                     .pickerStyle(.wheel)
+
 
                 Picker("Menu Picker", selection: $selection) {
                     pickerContent()
                 }
                 .pickerStyle(.wheel)
 
-            }
+
 
             
             VStack {
@@ -113,7 +108,7 @@ struct NewClient: View {
                     }
             .buttonStyle(GrowingButton())
 
-        }
+        }.padding(.horizontal, 22)
     }
     
     

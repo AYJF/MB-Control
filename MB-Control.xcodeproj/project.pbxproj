@@ -31,6 +31,7 @@
 		A510C4262915EEF9001EFBDF /* TextFieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510C4252915EEF9001EFBDF /* TextFieldIcon.swift */; };
 		A510C42A29160F5C001EFBDF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510C42929160F5C001EFBDF /* ProfileView.swift */; };
 		A510C42C29160FE4001EFBDF /* GradientProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510C42B29160FE3001EFBDF /* GradientProfilePicture.swift */; };
+		A5181F522923E2A700185CC9 /* UIPilot in Frameworks */ = {isa = PBXBuildFile; productRef = A5181F512923E2A700185CC9 /* UIPilot */; };
 		A5397DFF2918221E0011F860 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5397DFE2918221E0011F860 /* Credentials.swift */; };
 		A5397E01291822EF0011F860 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5397E00291822EF0011F860 /* LoginViewModel.swift */; };
 		A5397E03291827F80011F860 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5397E02291827F80011F860 /* Authentication.swift */; };
@@ -139,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A510C3F72915B9A5001EFBDF /* RiveRuntime in Frameworks */,
+				A5181F522923E2A700185CC9 /* UIPilot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +329,7 @@
 			name = "MB-Control";
 			packageProductDependencies = (
 				A510C3F62915B9A5001EFBDF /* RiveRuntime */,
+				A5181F512923E2A700185CC9 /* UIPilot */,
 			);
 			productName = "MB-Control";
 			productReference = A57F75C22911D33000E1B96E /* MB-Control.app */;
@@ -359,6 +362,7 @@
 			packageReferences = (
 				A599E2F12912AB1B00FC09B4 /* XCRemoteSwiftPackageReference "action-button" */,
 				A510C3F52915B9A5001EFBDF /* XCRemoteSwiftPackageReference "rive-ios" */,
+				A5181F502923E2A700185CC9 /* XCRemoteSwiftPackageReference "UIPilot" */,
 			);
 			productRefGroup = A57F75C32911D33000E1B96E /* Products */;
 			projectDirPath = "";
@@ -579,8 +583,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -610,8 +614,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -657,6 +661,14 @@
 				kind = branch;
 			};
 		};
+		A5181F502923E2A700185CC9 /* XCRemoteSwiftPackageReference "UIPilot" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/canopas/UIPilot.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		A599E2F12912AB1B00FC09B4 /* XCRemoteSwiftPackageReference "action-button" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftui-library/action-button";
@@ -672,6 +684,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A510C3F52915B9A5001EFBDF /* XCRemoteSwiftPackageReference "rive-ios" */;
 			productName = RiveRuntime;
+		};
+		A5181F512923E2A700185CC9 /* UIPilot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5181F502923E2A700185CC9 /* XCRemoteSwiftPackageReference "UIPilot" */;
+			productName = UIPilot;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

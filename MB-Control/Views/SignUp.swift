@@ -135,7 +135,7 @@ struct SignUp: View {
                                 
                                 GradientText(text: "Sign in")
                                     .font(.footnote)
-                                    .bold()
+                                  
                             }
                         })
                     })

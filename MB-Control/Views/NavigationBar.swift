@@ -6,7 +6,11 @@
 //
 
 import SwiftUI
+import UIPilot
+
+
 struct NavigationBar: View {
+    @EnvironmentObject var pilot: UIPilot<AppRoute>
     var title = ""
     @Binding var hasScrolled: Bool
     
@@ -39,12 +43,17 @@ struct NavigationBar: View {
                     .padding(8)
                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                     .strokeStyle(cornerRadius: 18)
+                    .onTapGesture {
+                        pilot.push(.Profile)
+                    }
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.trailing, 20)
             .padding(.top, 20)
             .offset(y: hasScrolled ? -4 : 0)
         }
+        .navigationTitle("")
+        .navigationBarHidden(true)
         .frame(height: hasScrolled ? 44 : 70)
         .frame(maxHeight: .infinity, alignment: .top)
     }

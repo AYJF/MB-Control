@@ -8,6 +8,11 @@
 import SwiftUI
 import RiveRuntime
 
+
+enum FocusableField: Hashable {
+    case email, password
+}
+
 struct SignInView: View {
     @State var isLoading = false
     @Binding var show: Bool
@@ -19,6 +24,8 @@ struct SignInView: View {
     @EnvironmentObject var authentication: Authentication
     @AppStorage("selectedAuth") var selectedAuth: Auth = .signIn
     @State private var showHomeScreen = false
+    
+    @FocusState private var focus : FocusableField?
     
     func logIn() async  {
         isLoading = true
@@ -59,7 +66,7 @@ struct SignInView: View {
     }
     
     var body: some View {
-        NavigationView {
+    
             VStack(spacing: 24) {
                 Text("Sign in")
                     .customFont(.largeTitle)
@@ -71,6 +78,10 @@ struct SignInView: View {
                         .foregroundColor(.secondary)
                     TextField("", text: $loginVM.credentials.email)
                         .customTextField(image: Image("Icon Email"))
+                        .focused($focus, equals: .email)
+                        .onSubmit {
+                          focus = .password
+                        }
                 }
                 VStack(alignment: .leading) {
                     Text("Password")
@@ -78,9 +89,17 @@ struct SignInView: View {
                         .foregroundColor(.secondary)
                     SecureField("", text: $loginVM.credentials.password)
                         .customTextField(image: Image("Icon Lock"))
+                        .focused($focus, equals: .password)
+                        .onSubmit {
+                            hideKeyboard()
+                            Task {
+                                await logIn()
+                              }
+                        }
                 }
                 
                 Button  {
+                    hideKeyboard()
                     Task {
                         await logIn()
                       }
@@ -147,9 +166,18 @@ struct SignInView: View {
                 }
             )
         .padding()
-        }
+     
     }
 }
+
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {

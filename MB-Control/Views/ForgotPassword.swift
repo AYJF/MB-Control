@@ -36,16 +36,16 @@ struct ForgotPassword: View {
                     Text("Access to 240+ hours of content. Learn design and code, by building real apps with React and Swift.")
                         .font(.subheadline)
                         .foregroundColor(Color.white.opacity(0.7))
-                    
+
                     HStack {
                       TextFieldIcon(iconName: "envelope.open.fill", currentlyEditing: $editingEmailTextfield)
                             .scaleEffect(emailIconBounce ? 1.2: 1.0)
                         TextField("Email", text: $email ){ isEditing in
                             editingEmailTextfield = isEditing
                             editingPasswordTextfield = false
-                            
+
                             generator.selectionChanged()
-                            
+
                             if isEditing {
                                 withAnimation(.spring(response: 0.3, dampingFraction: 0.4, blendDuration: 0.5)){
                                     emailIconBounce.toggle()
@@ -56,12 +56,12 @@ struct ForgotPassword: View {
                                     }
                                 }
                             }
-                            
+
                         }
-                            .colorScheme(.dark)
-                            .foregroundColor(Color.white.opacity(0.7))
-                            .autocapitalization(.none)
-                            .textContentType(.emailAddress)
+                        .colorScheme(.dark)
+                        .foregroundColor(Color.white.opacity(0.7))
+                        .autocapitalization(.none)
+                        .textContentType(.emailAddress)
                     }
                     .frame(height: 52)
                     .overlay(RoundedRectangle(cornerRadius: 16)
@@ -95,7 +95,7 @@ struct ForgotPassword: View {
                         editingEmailTextfield = false
                         editingPasswordTextfield = true
                         generator.selectionChanged()
-                        
+
                         if editingPasswordTextfield {
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.4, blendDuration: 0.5)){
                                 passwordIconBounce.toggle()
@@ -129,7 +129,7 @@ struct ForgotPassword: View {
                                 
                                 GradientText(text: "Sign in")
                                     .font(.footnote)
-                                    .bold()
+                                    
                             }
                         })
                     })

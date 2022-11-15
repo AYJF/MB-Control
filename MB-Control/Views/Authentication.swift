@@ -11,6 +11,7 @@ import SwiftUI
 class Authentication: ObservableObject {
     @Published var isValidated = false
     
+    
 //    enum AuthenticationError: Error, LocalizedError, Identifiable {
 //        case invalidCredentials
 //        
@@ -29,6 +30,7 @@ class Authentication: ObservableObject {
 
     
     func updateValidation(success: Bool) {
+        
         withAnimation {
             self.isValidated = success
         }

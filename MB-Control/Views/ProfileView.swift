@@ -38,7 +38,7 @@ struct ProfileView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack(spacing: 16) {
-                  
+
                             ZStack {
                                 Circle()
                                     .foregroundColor(Color("pink-gradient-1"))
@@ -47,9 +47,9 @@ struct ProfileView: View {
                                     .font(.system(size: 24, weight: .medium, design: .rounded))
                             }
                             .frame(width: 66, height: 66, alignment: .center)
-                      
+
                         VStack(alignment: .leading) {
-                            Text(loginVM.credentials.email.split(separator: "@")[0] )
+                            Text("Nombre" )
                                 .foregroundColor(.white)
                                 .font(.title3)
                                 .bold()
@@ -61,12 +61,12 @@ struct ProfileView: View {
                         Button {
                             showSettingsView.toggle()
                             print("Token :",loginVM.credentials.token)
-        
+
                         } label: {
                             TextFieldIcon(iconName: "gearshape.fill", currentlyEditing: .constant(true))
                         }
                     }
-                    
+//
      
                     ratingAnimation.view()
                         .frame(height: 50)
@@ -132,12 +132,11 @@ struct ProfileView: View {
                 .alert(isPresented: $showActionAlert, content: {
                     Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .cancel())
                 })
-                
                 .padding(.horizontal, 16)
-                
+
                 Button {
                     showLoader = true
-           
+
                 } label: {
                     GradientText(text: "No, didn't help")
                         .font(Font.footnote.bold())
@@ -168,7 +167,7 @@ struct ProfileView: View {
             VStack{
                 Spacer()
                 Button {
-             
+
                 } label: {
                     Image(systemName: "arrow.turn.up.forward.iphone.fill")
                         .foregroundColor(.white)
@@ -186,20 +185,20 @@ struct ProfileView: View {
                         )
 
                 }
-
+          
             }
-            .padding(.bottom, 60)
-            
-            if showLoader {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-            }
+            .padding(.bottom, 90)
+//            
+//            if showLoader {
+//                ProgressView()
+//                    .progressViewStyle(CircularProgressViewStyle())
+//            }
         }
+        .navigationTitle("")
+        .navigationBarHidden(true)
         .colorScheme(updater ? .dark : .dark)
         .onAppear() {
       
-
-
 
         }
     }
@@ -216,5 +215,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(LoginViewModel())
     }
 }

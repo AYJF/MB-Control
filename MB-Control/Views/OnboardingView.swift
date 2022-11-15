@@ -46,6 +46,7 @@ struct OnboardingView: View {
                     )
                     .transition(.opacity.combined(with: .move(edge: .top)))
                     .zIndex(1)
+
             }
             
             Button {
