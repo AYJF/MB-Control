@@ -68,6 +68,7 @@
 		A5E31800291AA32000FA5101 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E317FF291AA32000FA5101 /* ReportView.swift */; };
 		A5F58B1F291960C400B24C97 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F58B1E291960C400B24C97 /* Auth.swift */; };
 		A5F58B21291963B500B24C97 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F58B20291963B500B24C97 /* SignUp.swift */; };
+		A5FACA6A29252EEA00DC36C2 /* PromoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FACA6929252EEA00DC36C2 /* PromoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 		A5E317FF291AA32000FA5101 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		A5F58B1E291960C400B24C97 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		A5F58B20291963B500B24C97 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		A5FACA6929252EEA00DC36C2 /* PromoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 				A545778429174B6C003D5575 /* Model.swift */,
 				A546DEE32912EA04000001A5 /* UserModel.swift */,
 				A5397E00291822EF0011F860 /* LoginViewModel.swift */,
+				A5FACA6929252EEA00DC36C2 /* PromoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				A5D6D4A12916B95D001EF0EE /* Styles.swift in Sources */,
 				A510C42C29160FE4001EFBDF /* GradientProfilePicture.swift in Sources */,
 				A545778529174B6C003D5575 /* Model.swift in Sources */,
+				A5FACA6A29252EEA00DC36C2 /* PromoModel.swift in Sources */,
 				A5D6D4AD2916CD28001EF0EE /* AnimatableFontModifier.swift in Sources */,
 				A5D6D49E2916B8D6001EF0EE /* Tab.swift in Sources */,
 				A5397E03291827F80011F860 /* Authentication.swift in Sources */,
@@ -589,7 +593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ayjf.MB-Control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -623,7 +627,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ayjf.MB-Control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

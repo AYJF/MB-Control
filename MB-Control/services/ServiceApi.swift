@@ -8,16 +8,114 @@
 import Foundation
 
 
-class APIService {
+class APIService  {
     
-  var user = User()
-
+    var user = User()
+    var promoModel:PromoOptions?
   
     enum APIError: Error {
         case error
     }
-
     
+    
+    func createPromoter(name:String, isPercent:Bool, value:Double, optionId:String, phone:String,
+                        email:String, contactByEmail:Bool, contactByPhone:Bool, 
+                        completion: @escaping (Result<Bool,APIError>) -> Void) async throws  {
+        
+        
+        //declare parameter as a dictionary which contains string as key and value combination.
+        let parameters = ["name":name, "isPercent":isPercent, "value":value, "optionId":optionId,
+                          "phone":phone, "userEmail":user.email,
+                          "email":email, "contactByEmail":true, "contactByPhone":false] as [String : Any]
+        
+        //create the url with NSURL
+        guard  let url = URL(string: "https://mb-control.azurewebsites.net/promoter") else {
+            print("Invalid URL")
+            return
+        }
+        
+        //now create the Request object using the url object
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST" //set http method as POST
+
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
+        } catch let error {
+            print("error")
+            print(error.localizedDescription)
+           
+        }
+        
+        let token = "Bearer \(user.token)"
+        
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "accept")
+        request.addValue(token, forHTTPHeaderField:"Authorization" )
+    
+        let (_, response) = try await URLSession.shared.data(for: request)
+
+        
+        if (response as? HTTPURLResponse)?.statusCode == 200 {
+            print("OK")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.success(true))
+            }
+        }
+        else {
+            print("Error while fetching data")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.failure(APIError.error))
+            }
+        }
+
+    }
+    
+    
+    //https://api.coindesk.com/v1/bpi/currentprice.json
+    func getPromoOptions(credentials: Credentials,  completion: @escaping (Result<Bool,APIError>) -> Void) async throws {
+
+        //create the url with NSURL
+        guard  let url = URL(string: "https://mb-control.azurewebsites.net/promoteroptions") else {
+            print("Invalid URL")
+            return
+        }
+        
+        //now create the Request object using the url object
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET" //set http method as POST
+
+        
+        let token = "Bearer \(credentials.token)"
+
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "accept")
+        request.addValue(token, forHTTPHeaderField:"Authorization" )
+    
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        
+        if (response as? HTTPURLResponse)?.statusCode == 200 {
+            print("OK")
+            promoModel = try JSONDecoder().decode(PromoOptions.self, from: data)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.success(true))
+            }
+        }
+        else {
+            print("Error while fetching data")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.failure(APIError.error))
+            }
+        }
+        
+
+ 
+
+    }
     
     func login(credentials: Credentials,
                completion: @escaping (Result<Bool,APIError>) -> Void) async throws {

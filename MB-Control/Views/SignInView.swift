@@ -34,7 +34,7 @@ struct SignInView: View {
          await   loginVM.login { success in
       
              
-         
+           
              if success {
                  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                      try? check.triggerInput("Check")
@@ -46,6 +46,7 @@ struct SignInView: View {
                      }
                  }
 
+                 
              }else {
                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                      try? check.triggerInput("Error")
@@ -58,6 +59,10 @@ struct SignInView: View {
 
              
              DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                 Task {
+                     await loginVM.getPromoOptions()
+                 }
+                 
                  authentication.updateValidation(success: success)
              }
              
@@ -93,7 +98,7 @@ struct SignInView: View {
                         .onSubmit {
                             hideKeyboard()
                             Task {
-                                await logIn()
+                                await logIn()                
                               }
                         }
                 }
@@ -102,6 +107,7 @@ struct SignInView: View {
                     hideKeyboard()
                     Task {
                         await logIn()
+            
                       }
                     
                 } label: {
