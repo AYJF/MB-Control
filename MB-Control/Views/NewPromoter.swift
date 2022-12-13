@@ -21,10 +21,22 @@ struct NewPromoter: View {
     
     @State private var value: String = "0"
     
+    @State private var cucaValue: String = "0"
+    @State private var ADRValue: String = "0"
+    @State private var FinValue: String = "0"
+    
+    @State private var cucaIsPercent: Bool = false
+    @State private var adrIsPercent: Bool = false
+    @State private var finIsPercent: Bool = false
+    
+    @State private var isEmail: Bool = false
+    @State private var isWhatsapp: Bool = false
+    
     @State private var selectedIva: Piso = .piso
     @EnvironmentObject  var loginVM: LoginViewModel
     
     @State private var selectedADR:Int = 0
+
     
     
     init() {
@@ -66,58 +78,83 @@ struct NewPromoter: View {
                     .foregroundColor(.black)
             }
             
-            VStack(alignment: .leading) {
-                Text("Value")
-                    .customFont(.subheadline)
-                    .foregroundColor(.secondary)
-                TextField("", text: $value )
-                    .customTextField(image: Image("Icon Email"))
-                    .foregroundColor(.black)
-            }
-            
-            
-            VStack {
-                Picker("Piso", selection: $selectedIva) {
-                    ForEach(Piso.allCases) { piso in
-                        Text(piso.rawValue.uppercased())
-                    }
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(loginVM.models?.data[0].name ?? "")
+                        .customFont(.subheadline)
+                        .foregroundColor(.secondary)
+                    TextField("", text: $cucaValue )
+                        .customTextField(image: Image("Icon Email"))
+                        .foregroundColor(.black)
                 }
-                
+                Spacer(minLength: 80)
+                Toggle("Piso/%", isOn: $cucaIsPercent)
+                    .toggleStyle(.switch)
             }
-            .onChange(of: selectedIva){ _ in
-                print(selectedIva)
+            
+           
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(loginVM.models?.data[1].name ?? "")
+                        .customFont(.subheadline)
+                        .foregroundColor(.secondary)
+                    TextField("", text: $ADRValue )
+                        .customTextField(image: Image("Icon Email"))
+                        .foregroundColor(.black)
+                }
+                Spacer(minLength: 80)
+                Toggle("Piso/%", isOn: $adrIsPercent)
+                    .toggleStyle(.switch)
             }
-            .pickerStyle(.segmented)
-            .padding(.bottom, 16)
             
-            Picker("ADR", selection: $selectedADR) {
-                ForEach(0 ..< loginVM.promoData.data.count) {
-                                Text(loginVM.promoData.data[$0].name)
-                            }
-                }.onChange(of: selectedADR) { _ in
-                    print(loginVM.promoData.data[selectedADR].name)
-                }.pickerStyle(.wheel)
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(loginVM.models?.data[2].name ?? "")
+                        .customFont(.subheadline)
+                        .foregroundColor(.secondary)
+                    TextField("", text: $FinValue )
+                        .customTextField(image: Image("Icon Email"))
+                        .foregroundColor(.black)
+                }
+                Spacer(minLength: 80)
+                Toggle("Piso/%", isOn: $finIsPercent)
+                    .toggleStyle(.switch)
+            }
             
             
-            Button("Guardar") {
-//                print("#########################")
-//                print(loginVM.promoData.data[selectedADR].id)
-//                print(username)
-//                print(email)
-//                print(phone)
-//                print(selectedIva == .piso ? true: false)
-//                print("================================")
+            HStack {
                 
-                let value:Double = Double(value ) ?? 0.0
+                Toggle("email", isOn: $isEmail)
+                    .toggleStyle(.switch)
+                Spacer(minLength: 80)
+                Toggle("Whatsapp", isOn: $isWhatsapp)
+                    .toggleStyle(.switch)
+            }
+            
+
+            
+            
+            Button("Crear") {
+                
+   
+                let arr = [
+                    ["modelId": loginVM.models?.data[0].id ?? "", "value": Int(cucaValue) ?? 0, "isPercent": cucaIsPercent],
+                    ["modelId": loginVM.models?.data[1].id ?? "", "value": Int(ADRValue) ?? 0, "isPercent": adrIsPercent],
+                    ["modelId": loginVM.models?.data[2].id ?? "","value": Int(FinValue) ?? 0, "isPercent": finIsPercent],
+                ]
+                print(arr)
                 
                 Task {
-                    await loginVM.createPromoter(name:username, isPercent:selectedIva == .piso ? true: false,value: value,
-                                                 optionId:loginVM.promoData.data[selectedADR].id,
-                                                 phone:phone, email:email ,contactByEmail: true , contactByPhone: true ){ success in
-                        
-                        
-                        print(success)
-                        
+                    await loginVM.createPromoter(name:username, models: arr,
+                                                 phone:phone, email:email ,
+                                                 contactByEmail: true ,
+                                                 contactByPhone: true ){ success in
+
+                        if success {
+                            print("todo esta ok")
+                        }
+                 
+
                     }
                 }
             }

@@ -11,6 +11,8 @@ import Foundation
 class LoginViewModel: ObservableObject {
       @Published var credentials = Credentials()
       @Published var promoData:PromoOptions!
+      @Published var models:Models?
+  
       
        var apiService = APIService()
     
@@ -35,12 +37,17 @@ class LoginViewModel: ObservableObject {
            }
        }
     
+
     
-    func createPromoter(name: String, isPercent: Bool, value: Double, optionId: String,
+    func createPromoter(name: String, models:[[String : Any]],
                         phone: String, email: String, contactByEmail: Bool, contactByPhone: Bool,
                         completion: @escaping (Bool) -> Void) async {
-        try? await apiService.createPromoter(name: name, isPercent: isPercent, value: value, optionId: optionId,
-                                             phone: phone, email: email, contactByEmail: contactByEmail, contactByPhone: contactByPhone)  { [unowned self](result:Result<Bool, APIService.APIError>) in
+        
+        try? await apiService.createPromoter(name: name, models: models,
+                                             phone: phone, email: email,
+                                             contactByEmail: contactByEmail,
+                                             contactByPhone: contactByPhone)
+        { [unowned self](result:Result<Bool, APIService.APIError>) in
             switch result {
             case .success:
                 completion(true)
@@ -52,11 +59,27 @@ class LoginViewModel: ObservableObject {
     }
     
     
+    func getModels( ) async {
+        try? await apiService.getModels() {  [unowned self](result:Result<Bool, APIService.APIError>) in
+            
+            switch result {
+            case .success:
+                models = apiService.models
+            case .failure:
+                models = nil
+                
+               
+            }
+        }
+    }
+    
+    
     func getPromoOptions()  async {
         try? await apiService.getPromoOptions(credentials: credentials) { [unowned self](result:Result<Bool, APIService.APIError>) in
             switch result {
                 case .success:
                 promoData = apiService.promoModel
+            
 
                 case .failure:
                   promoData = nil

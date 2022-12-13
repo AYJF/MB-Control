@@ -12,19 +12,20 @@ class APIService  {
     
     var user = User()
     var promoModel:PromoOptions?
+    var models:Models?
   
     enum APIError: Error {
         case error
     }
     
     
-    func createPromoter(name:String, isPercent:Bool, value:Double, optionId:String, phone:String,
+    func createPromoter(name:String, models:[[String : Any]], phone:String,
                         email:String, contactByEmail:Bool, contactByPhone:Bool, 
                         completion: @escaping (Result<Bool,APIError>) -> Void) async throws  {
         
         
         //declare parameter as a dictionary which contains string as key and value combination.
-        let parameters = ["name":name, "isPercent":isPercent, "value":value, "optionId":optionId,
+        let parameters = ["name":name, "models": models,
                           "phone":phone, "userEmail":user.email,
                           "email":email, "contactByEmail":true, "contactByPhone":false] as [String : Any]
         
@@ -48,6 +49,8 @@ class APIService  {
         
         let token = "Bearer \(user.token)"
         
+        print(token)
+        
         
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -70,6 +73,44 @@ class APIService  {
             }
         }
 
+    }
+    
+    
+    func getModels( completion: @escaping (Result<Bool,APIError>) -> Void) async throws {
+        
+        //create the url with NSURL
+        guard  let url = URL(string: "https://mb-control.azurewebsites.net/models") else {
+            print("Invalid URL")
+            return
+        }
+        
+        //now create the Request object using the url object
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let token = "Bearer \(user.token)"
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "accept")
+        request.addValue(token, forHTTPHeaderField:"Authorization" )
+    
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        
+        if (response as? HTTPURLResponse)?.statusCode == 200 {
+            models = try JSONDecoder().decode(Models.self, from: data)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.success(true))
+            }
+        }
+        else {
+            print("Error while fetching data")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.failure(APIError.error))
+            }
+        }
+        
+        
     }
     
     
