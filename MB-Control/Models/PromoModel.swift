@@ -28,3 +28,18 @@ struct PromoData:Decodable {
     var name:String = ""
 
 }
+
+
+struct UserModel: Decodable {
+    let data:[UserData]
+}
+
+
+struct UserData: Decodable {
+    var id:String = ""
+    var name:String = ""
+    var userName:String = ""
+//    var rfc:String = ""
+    var promoterId:String = ""
+    var promoterName:String = ""
+}

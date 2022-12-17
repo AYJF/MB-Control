@@ -13,6 +13,7 @@ class APIService  {
     var user = User()
     var promoModel:PromoOptions?
     var models:Models?
+    var users:UserModel?
   
     enum APIError: Error {
         case error
@@ -96,7 +97,7 @@ class APIService  {
     
         let (data, response) = try await URLSession.shared.data(for: request)
 
-        
+        print(token)
         if (response as? HTTPURLResponse)?.statusCode == 200 {
             models = try JSONDecoder().decode(Models.self, from: data)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -111,6 +112,44 @@ class APIService  {
         }
         
         
+    }
+    
+    func getClients(completion: @escaping (Result<Bool,APIError>) -> Void) async throws {
+        //create the url with NSURL
+        guard  let url = URL(string: "https://mb-control.azurewebsites.net/client") else {
+            print("Invalid URL")
+            return
+        }
+        
+ 
+        
+        //now create the Request object using the url object
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let token = "Bearer \(user.token)"
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "accept")
+        request.addValue(token, forHTTPHeaderField:"Authorization" )
+        
+    
+    
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+    
+        if (response as? HTTPURLResponse)?.statusCode == 200 {
+            users = try JSONDecoder().decode(UserModel.self, from: data)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.success(true))
+            }
+        }
+        else {
+            print("Error while fetching data")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(.failure(APIError.error))
+            }
+        }
     }
     
     

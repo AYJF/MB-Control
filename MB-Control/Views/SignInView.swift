@@ -60,7 +60,9 @@ struct SignInView: View {
              
              DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                  Task {
+                     await loginVM.getClients();
                      await loginVM.getModels() ;
+             
                  }
                  
                  authentication.updateValidation(success: success)

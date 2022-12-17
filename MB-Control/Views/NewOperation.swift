@@ -6,10 +6,31 @@
 //
 
 import SwiftUI
+import UIPilot
 
 struct NewOperation: View {
+    @EnvironmentObject var pilot: UIPilot<AppRoute>
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Recent")
+                .customFont(.title3)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            VStack(spacing: 20) {
+                ForEach(courseSections) { section in
+                    HCard(section: section)
+                    .onTapGesture {
+                        if section.title == "Asignar Factura" {
+                            pilot.push(.invoice)
+                        }else if section.title == "Retorno" {
+                            pilot.push(.retorno)
+                        }
+                    }
+                    .navigationTitle("Retorno")
+                }
+            }
+        }
+        .padding(.vertical, 20)
     }
 }
 

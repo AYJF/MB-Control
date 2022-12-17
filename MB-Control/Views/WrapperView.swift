@@ -14,6 +14,8 @@ enum AppRoute: String, Equatable {
     case Profile  // Typesafe parameters
     case Explore
     case Notifications
+    case retorno
+    case invoice
 
 }
 
@@ -42,6 +44,8 @@ struct WrapperView: View {
                    case .Profile: PilotStack {
                        ProfileView()
                    }
+                   case .retorno: Return()
+                   case .invoice: InvoiceAssigment()
                }
             }.ignoresSafeArea()
 

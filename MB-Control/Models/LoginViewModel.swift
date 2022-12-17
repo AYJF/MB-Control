@@ -12,6 +12,7 @@ class LoginViewModel: ObservableObject {
       @Published var credentials = Credentials()
       @Published var promoData:PromoOptions!
       @Published var models:Models?
+      @Published var users:UserModel?
   
       
        var apiService = APIService()
@@ -67,6 +68,22 @@ class LoginViewModel: ObservableObject {
                 models = apiService.models
             case .failure:
                 models = nil
+                
+               
+            }
+        }
+    }
+    
+    func getClients() async {
+        print("AQui")
+        try? await apiService.getClients() {  [unowned self](result:Result<Bool, APIService.APIError>) in
+            
+            switch result {
+            case .success:
+                users = apiService.users
+                print(apiService.users?.data ?? "sin data")
+            case .failure:
+                users = nil
                 
                
             }
