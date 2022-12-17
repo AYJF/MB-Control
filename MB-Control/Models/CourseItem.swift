@@ -5,12 +5,13 @@
 //  Created by Meng To on 2021-12-10.
 //
 
+
 import SwiftUI
 
 struct CourseItem: View {
     var namespace: Namespace.ID
     var course: Course = courses[0]
-//    @Binding var show: Bool
+    @Binding var show: Bool
     
     var body: some View {
         VStack {
@@ -41,6 +42,7 @@ struct CourseItem: View {
             Image(course.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .padding(20)
                 .matchedGeometryEffect(id: "image\(course.id)", in: namespace)
         )
         .background(
@@ -54,7 +56,6 @@ struct CourseItem: View {
                 .matchedGeometryEffect(id: "mask\(course.id)", in: namespace)
         )
         .frame(height: 300)
-        .padding(20)
     }
 }
 
@@ -62,6 +63,6 @@ struct CourseItem_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        CourseItem(namespace: namespace)
+        CourseItem(namespace: namespace, show: .constant(true))
     }
 }

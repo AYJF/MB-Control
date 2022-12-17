@@ -35,14 +35,15 @@
 		A5397DFF2918221E0011F860 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5397DFE2918221E0011F860 /* Credentials.swift */; };
 		A5397E01291822EF0011F860 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5397E00291822EF0011F860 /* LoginViewModel.swift */; };
 		A5397E03291827F80011F860 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5397E02291827F80011F860 /* Authentication.swift */; };
+		A53DBADC294E3188006C96BC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DBADB294E3188006C96BC /* HomeView.swift */; };
+		A53DBADE294E3275006C96BC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DBADD294E3275006C96BC /* Course.swift */; };
+		A53DBAE0294E398B006C96BC /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DBADF294E398B006C96BC /* MatchedView.swift */; };
+		A53DBAE2294E39D9006C96BC /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DBAE1294E39D9006C96BC /* CourseView.swift */; };
+		A53DBAE4294E3A31006C96BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DBAE3294E3A31006C96BC /* Model.swift */; };
+		A53DBAE6294E4319006C96BC /* NewOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DBAE5294E4319006C96BC /* NewOperation.swift */; };
 		A5419C5C291AA6810035B2D1 /* GrowingBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5419C5B291AA6810035B2D1 /* GrowingBtn.swift */; };
 		A5419C62291B005B0035B2D1 /* rating_animation.riv in Resources */ = {isa = PBXBuildFile; fileRef = A5419C61291B005B0035B2D1 /* rating_animation.riv */; };
 		A545777529174A47003D5575 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545777429174A47003D5575 /* Animations.swift */; };
-		A545777F29174B4A003D5575 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545777E29174B4A003D5575 /* HomeView.swift */; };
-		A545778129174B54003D5575 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545778029174B54003D5575 /* CourseView.swift */; };
-		A545778329174B60003D5575 /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545778229174B60003D5575 /* MatchedView.swift */; };
-		A545778529174B6C003D5575 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545778429174B6C003D5575 /* Model.swift */; };
-		A545778729174B76003D5575 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545778629174B76003D5575 /* Course.swift */; };
 		A545778929174D20003D5575 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A545778829174D20003D5575 /* CourseItem.swift */; };
 		A546DEE12912E911000001A5 /* ServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A546DEE02912E911000001A5 /* ServiceApi.swift */; };
 		A546DEE42912EA04000001A5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A546DEE32912EA04000001A5 /* UserModel.swift */; };
@@ -99,14 +100,15 @@
 		A5397DFE2918221E0011F860 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		A5397E00291822EF0011F860 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A5397E02291827F80011F860 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		A53DBADB294E3188006C96BC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A53DBADD294E3275006C96BC /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		A53DBADF294E398B006C96BC /* MatchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedView.swift; sourceTree = "<group>"; };
+		A53DBAE1294E39D9006C96BC /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		A53DBAE3294E3A31006C96BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A53DBAE5294E4319006C96BC /* NewOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperation.swift; sourceTree = "<group>"; };
 		A5419C5B291AA6810035B2D1 /* GrowingBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingBtn.swift; sourceTree = "<group>"; };
 		A5419C61291B005B0035B2D1 /* rating_animation.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = rating_animation.riv; sourceTree = "<group>"; };
 		A545777429174A47003D5575 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
-		A545777E29174B4A003D5575 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "../../../../../Downloads/SwiftUI iOS 15 Part 2/Xcode Project Course/39. Edge Pan Gesture/DesignCodeiOS15/Views/HomeView.swift"; sourceTree = "<group>"; };
-		A545778029174B54003D5575 /* CourseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseView.swift; path = "../../../../../Downloads/SwiftUI iOS 15 Part 2/Xcode Project Course/39. Edge Pan Gesture/DesignCodeiOS15/Views/CourseView.swift"; sourceTree = "<group>"; };
-		A545778229174B60003D5575 /* MatchedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchedView.swift; path = "../../../../../Downloads/SwiftUI iOS 15 Part 2/Xcode Project Course/39. Edge Pan Gesture/DesignCodeiOS15/Views/MatchedView.swift"; sourceTree = "<group>"; };
-		A545778429174B6C003D5575 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "../../../../../Downloads/SwiftUI iOS 15 Part 2/Xcode Project Course/39. Edge Pan Gesture/DesignCodeiOS15/Model/Model.swift"; sourceTree = "<group>"; };
-		A545778629174B76003D5575 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Course.swift; path = "../../../../../Downloads/SwiftUI iOS 15 Part 2/Xcode Project Course/39. Edge Pan Gesture/DesignCodeiOS15/Model/Course.swift"; sourceTree = "<group>"; };
 		A545778829174D20003D5575 /* CourseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
 		A546DEE02912E911000001A5 /* ServiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceApi.swift; sourceTree = "<group>"; };
 		A546DEE32912EA04000001A5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -152,15 +154,14 @@
 		A510C3F02915B972001EFBDF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A53DBADF294E398B006C96BC /* MatchedView.swift */,
 				A599E2F62912CE9700FC09B4 /* ForgotPassword.swift */,
 				A5A74C1F29198E1300952B80 /* NewClient.swift */,
 				A5A74C2129198E4500952B80 /* NewPromoter.swift */,
 				A5F58B20291963B500B24C97 /* SignUp.swift */,
 				A510C42929160F5C001EFBDF /* ProfileView.swift */,
-				A545777E29174B4A003D5575 /* HomeView.swift */,
-				A545778229174B60003D5575 /* MatchedView.swift */,
+				A53DBADB294E3188006C96BC /* HomeView.swift */,
 				A510C4232915EEC4001EFBDF /* GradientButton.swift */,
-				A545778029174B54003D5575 /* CourseView.swift */,
 				A5A74C1D29197D5D00952B80 /* OperationView.swift */,
 				A510C4252915EEF9001EFBDF /* TextFieldIcon.swift */,
 				A510C3F12915B972001EFBDF /* SignInView.swift */,
@@ -169,6 +170,8 @@
 				A5D6D4AE2916CE36001EF0EE /* WrapperView.swift */,
 				A5397E02291827F80011F860 /* Authentication.swift */,
 				A5E317FF291AA32000FA5101 /* ReportView.swift */,
+				A53DBAE1294E39D9006C96BC /* CourseView.swift */,
+				A53DBAE5294E4319006C96BC /* NewOperation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,14 +239,14 @@
 			isa = PBXGroup;
 			children = (
 				A5397DFE2918221E0011F860 /* Credentials.swift */,
-				A545778629174B76003D5575 /* Course.swift */,
 				A5D6D49C2916B8D5001EF0EE /* Tab.swift */,
 				A545778829174D20003D5575 /* CourseItem.swift */,
 				A5D6D4A72916C99E001EF0EE /* PreferenceKeys.swift */,
-				A545778429174B6C003D5575 /* Model.swift */,
 				A546DEE32912EA04000001A5 /* UserModel.swift */,
 				A5397E00291822EF0011F860 /* LoginViewModel.swift */,
 				A5FACA6929252EEA00DC36C2 /* PromoModel.swift */,
+				A53DBADD294E3275006C96BC /* Course.swift */,
+				A53DBAE3294E3A31006C96BC /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,14 +410,15 @@
 			files = (
 				A57F75C82911D33000E1B96E /* ContentView.swift in Sources */,
 				A546DEE42912EA04000001A5 /* UserModel.swift in Sources */,
+				A53DBAE0294E398B006C96BC /* MatchedView.swift in Sources */,
 				A599E2F52912B60B00FC09B4 /* PasswordField.swift in Sources */,
 				A5D6D4A82916C99E001EF0EE /* PreferenceKeys.swift in Sources */,
-				A545777F29174B4A003D5575 /* HomeView.swift in Sources */,
 				A545777529174A47003D5575 /* Animations.swift in Sources */,
 				A5D6D4A12916B95D001EF0EE /* Styles.swift in Sources */,
 				A510C42C29160FE4001EFBDF /* GradientProfilePicture.swift in Sources */,
-				A545778529174B6C003D5575 /* Model.swift in Sources */,
 				A5FACA6A29252EEA00DC36C2 /* PromoModel.swift in Sources */,
+				A53DBADE294E3275006C96BC /* Course.swift in Sources */,
+				A53DBAE2294E39D9006C96BC /* CourseView.swift in Sources */,
 				A5D6D4AD2916CD28001EF0EE /* AnimatableFontModifier.swift in Sources */,
 				A5D6D49E2916B8D6001EF0EE /* Tab.swift in Sources */,
 				A5397E03291827F80011F860 /* Authentication.swift in Sources */,
@@ -424,16 +428,15 @@
 				A5A74C2029198E1300952B80 /* NewClient.swift in Sources */,
 				A546DEE12912E911000001A5 /* ServiceApi.swift in Sources */,
 				A510C3FD2915BA2E001EFBDF /* Extensions.swift in Sources */,
+				A53DBAE6294E4319006C96BC /* NewOperation.swift in Sources */,
 				A510C41E2915C2F4001EFBDF /* VisualEffectBlur.swift in Sources */,
 				A57F75C62911D33000E1B96E /* MB_ControlApp.swift in Sources */,
 				A510C3FE2915BA2E001EFBDF /* CustomButton.swift in Sources */,
 				A510C3FF2915BA2E001EFBDF /* CustomTextField.swift in Sources */,
 				A5419C5C291AA6810035B2D1 /* GrowingBtn.swift in Sources */,
-				A545778129174B54003D5575 /* CourseView.swift in Sources */,
 				A510C42A29160F5C001EFBDF /* ProfileView.swift in Sources */,
 				A57F75D62911FD8C00E1B96E /* AddView.swift in Sources */,
-				A545778729174B76003D5575 /* Course.swift in Sources */,
-				A545778329174B60003D5575 /* MatchedView.swift in Sources */,
+				A53DBADC294E3188006C96BC /* HomeView.swift in Sources */,
 				A5F58B1F291960C400B24C97 /* Auth.swift in Sources */,
 				A510C4222915EE69001EFBDF /* GradiantText.swift in Sources */,
 				A510C41F2915C2F4001EFBDF /* ImagePicker.swift in Sources */,
@@ -443,6 +446,7 @@
 				A5397E01291822EF0011F860 /* LoginViewModel.swift in Sources */,
 				A510C3F32915B972001EFBDF /* SignInView.swift in Sources */,
 				A5A74C1E29197D5D00952B80 /* OperationView.swift in Sources */,
+				A53DBAE4294E3A31006C96BC /* Model.swift in Sources */,
 				A5A74C2229198E4500952B80 /* NewPromoter.swift in Sources */,
 				A5397DFF2918221E0011F860 /* Credentials.swift in Sources */,
 				A5E31800291AA32000FA5101 /* ReportView.swift in Sources */,

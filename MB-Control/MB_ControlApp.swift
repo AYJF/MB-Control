@@ -24,8 +24,8 @@ struct MB_ControlApp: App {
                 WrapperView()
                     .preferredColorScheme(.dark)
                     .environmentObject(authentication)
-                    .environmentObject(Model())
                     .environmentObject(loginVM)
+                    .environmentObject(Model())
             }else {
                 
                 

@@ -1,8 +1,8 @@
 //
 //  Model.swift
-//  DesignCodeiOS15
+//  MB-Control
 //
-//  Created by Meng To on 2022-01-14.
+//  Created by Alvaro Jimenez on 12/17/22.
 //
 
 import SwiftUI
@@ -11,3 +11,4 @@ import Combine
 class Model: ObservableObject {
     @Published var showDetail: Bool = false
 }
+

@@ -1,8 +1,8 @@
 //
 //  Course.swift
-//  DesignCodeiOS15
+//  MB-Control
 //
-//  Created by Meng To on 2021-12-01.
+//  Created by Alvaro Jimenez on 12/17/22.
 //
 
 import SwiftUI
@@ -18,10 +18,10 @@ struct Course: Identifiable {
 }
 
 var featuredCourses = [
-    Course(title: "SwiftUI for iOS 15", subtitle: "20 sections - 3 hours", text: "Build an iOS app for iOS 15 with custom layouts, animations and ...", image: "Illustration 5", background: "Background 5", logo: "Logo 2"),
-    Course(title: "UI Design for iOS 15", subtitle: "20 sections - 3 hours", text: "Design an iOS app for iOS 15 with custom layouts, animations and ...", image: "Illustration 3", background: "Background 4", logo: "Logo 4"),
-    Course(title: "Flutter for designers", subtitle: "20 sections - 3 hours", text: "Flutter is a relatively new toolkit that makes it easy to build cross-platform apps that look gorgeous and is easy to use.", image: "Illustration 1", background: "Background 1", logo: "Logo 1"),
-    Course(title: "React Hooks Advanced", subtitle: "20 sections - 3 hours", text: "Learn how to build a website with Typescript, Hooks, Contentful and Gatsby Cloud", image: "Illustration 2", background: "Background 2", logo: "Logo 3"),
+    Course(title: "Nuevo Cliente", subtitle: "agregue un nuevo cliente", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: "Illustration 5", background: "Background 5", logo: "Logo 2"),
+    Course(title: "Nuevo Promotor", subtitle: "20 sections - 3 hours", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: "Illustration 3", background: "Background 4", logo: "Logo 4"),
+    Course(title: "Nueva Operacion", subtitle: "20 sections - 3 hours", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", image: "Illustration 1", background: "Background 1", logo: "Logo 1"),
+    Course(title: "Nuevo Reporte", subtitle: "20 sections - 3 hours", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: "Illustration 2", background: "Background 2", logo: "Logo 3"),
 ]
 
 var courses = [
