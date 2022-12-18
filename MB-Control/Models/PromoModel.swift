@@ -43,3 +43,20 @@ struct UserData: Decodable {
     var promoterId:String = ""
     var promoterName:String = ""
 }
+
+struct PromoterModels:Decodable {
+    let data:[PromoterData]
+}
+
+
+struct PromoterData: Decodable {
+    var id:String = ""
+    var name:String = ""
+    var userName:String = ""
+    var phone:String = ""
+    var email:String = ""
+}
+
+struct ErrorData: Decodable {
+    var errorMessage:String = ""
+}

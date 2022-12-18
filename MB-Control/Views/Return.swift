@@ -24,7 +24,7 @@ struct Return: View {
     @EnvironmentObject var pilot: UIPilot<AppRoute>
     @State private var selectedFactura: Factura = .conFactura
     @State private var selection = "A"
-    @State private var cliente = ""
+    @State private var cliente:Int = 0
     @State private var factura: String = ""
     @State private var selectedPayment: Payment = .parcial
     @EnvironmentObject  var loginVM: LoginViewModel
@@ -73,15 +73,17 @@ struct Return: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.bottom, 16)
+    
                 
+
                 
                 HStack {
-                    Picker("Clientes", selection: $cliente, content: {
-                        ForEach(0..<(loginVM.users?.data.count ?? 0) , content: { index in // <2>
-                            Text(loginVM.users?.data[index].name ?? "")
-                            
-                        })
-                    })
+                    
+                    Picker("Clientes", selection: $cliente) {
+                        ForEach(0 ..< (loginVM.users?.data.count ?? 0), id: \.self) {
+                            Text(self.loginVM.users?.data[$0].name ?? "").tag($0)
+                        }
+                    }
                     .pickerStyle(.menu)
                     .foregroundColor(.white)
                     

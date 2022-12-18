@@ -13,6 +13,7 @@ class LoginViewModel: ObservableObject {
       @Published var promoData:PromoOptions!
       @Published var models:Models?
       @Published var users:UserModel?
+    @Published var promoters:PromoterModels?
   
       
        var apiService = APIService()
@@ -48,7 +49,7 @@ class LoginViewModel: ObservableObject {
                                              phone: phone, email: email,
                                              contactByEmail: contactByEmail,
                                              contactByPhone: contactByPhone)
-        { [unowned self](result:Result<Bool, APIService.APIError>) in
+        { [](result:Result<Bool, APIService.APIError>) in
             switch result {
             case .success:
                 completion(true)
@@ -58,6 +59,22 @@ class LoginViewModel: ObservableObject {
             
         }
     }
+    
+    func createClient(name:String, models:[[String : Any]], rfc:String, promterId:String,
+                      completion: @escaping (Bool) -> Void) async {
+        
+        try? await apiService.createClients(name: name, models: models, rfc: rfc, promterId: promterId)
+        { [](result:Result<Bool, APIService.APIError>) in
+            switch result {
+            case .success:
+                completion(true)
+            case .failure:
+                completion(false)
+            }
+            
+        }
+    }
+    
     
     
     func getModels( ) async {
@@ -75,13 +92,11 @@ class LoginViewModel: ObservableObject {
     }
     
     func getClients() async {
-        print("AQui")
         try? await apiService.getClients() {  [unowned self](result:Result<Bool, APIService.APIError>) in
             
             switch result {
             case .success:
                 users = apiService.users
-                print(apiService.users?.data ?? "sin data")
             case .failure:
                 users = nil
                 
@@ -90,6 +105,20 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    
+    func getPromoters() async {
+        try? await apiService.getPromoters() {  [unowned self](result:Result<Bool, APIService.APIError>) in
+            
+            switch result {
+            case .success:
+                promoters = apiService.promoters
+            case .failure:
+                promoters = nil
+                
+               
+            }
+        }
+    }
     
     func getPromoOptions()  async {
         try? await apiService.getPromoOptions(credentials: credentials) { [unowned self](result:Result<Bool, APIService.APIError>) in

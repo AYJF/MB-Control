@@ -62,6 +62,7 @@ struct SignInView: View {
                  Task {
                      await loginVM.getClients();
                      await loginVM.getModels() ;
+                     await loginVM.getPromoters();
              
                  }
                  

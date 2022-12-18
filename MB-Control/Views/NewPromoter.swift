@@ -37,7 +37,7 @@ struct NewPromoter: View {
     
     @State private var selectedADR:Int = 0
 
-    
+    @State private var showingAlert = false
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .green
@@ -152,6 +152,7 @@ struct NewPromoter: View {
 
                         if success {
                             print("todo esta ok")
+                            showingAlert = true
                         }
                  
 
@@ -159,6 +160,10 @@ struct NewPromoter: View {
                 }
             }
             .buttonStyle(GrowingButton())
+            .alert("El promotor fue insertado con exito!", isPresented: $showingAlert) {
+                        Button("OK", role: .cancel) {
+                }
+            }
             
         }
     }
